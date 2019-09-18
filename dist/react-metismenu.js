@@ -1936,16 +1936,16 @@ var MetisMenu = function (_React$Component) {
       };
     }
   }, {
-    key: 'componentWillReceiveProps',
-    value: function componentWillReceiveProps(nextProps) {
-      if (this.props.content !== nextProps.content) {
-        this.updateContent(nextProps.content);
+    key: 'componentDidUpdate',
+    value: function componentDidUpdate(prevProps) {
+      if (this.props.content !== prevProps.content) {
+        this.updateContent(this.props.content);
       }
 
-      if (this.props.ajax !== nextProps.ajax) {
-        this.updateRemoteContent(nextProps);
-      } else if (this.props.activeLinkId !== nextProps.activeLinkId || this.props.activeLinkTo !== nextProps.activeLinkTo || this.props.activeLinkLabel !== nextProps.activeLinkLabel || this.props.activeLinkFromLocation !== nextProps.activeLinkFromLocation) {
-        this.updateActiveLink(nextProps);
+      if (this.props.ajax !== prevProps.ajax) {
+        this.updateRemoteContent(this.props);
+      } else if (this.props.activeLinkId !== prevProps.activeLinkId || this.props.activeLinkTo !== prevProps.activeLinkTo || this.props.activeLinkLabel !== prevProps.activeLinkLabel || this.props.activeLinkFromLocation !== prevProps.activeLinkFromLocation) {
+        this.updateActiveLink(this.props);
       }
     }
   }, {
