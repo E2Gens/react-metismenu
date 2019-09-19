@@ -7,6 +7,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import Link from 'react-router-dom';
 
 const DefaultLink = ({
   className,
@@ -20,7 +21,7 @@ const DefaultLink = ({
   toggleSubMenu,
   activateMe,
   children,
-}) => (
+}) => externalLink ? (
   <a
     className={classnames(
       className,
@@ -33,7 +34,18 @@ const DefaultLink = ({
   >
     {children}
   </a>
-);
+) : <Link
+className={classnames(
+  className,
+  active && classNameActive,
+  hasActiveChild && classNameHasActiveChild,
+)}
+to={to}
+onClick={hasSubMenu ? toggleSubMenu : activateMe}
+target={undefined}
+>
+{children}
+</Link>;
 
 DefaultLink.defaultProps = {
   externalLink: false,
