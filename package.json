@@ -87,7 +87,6 @@
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
     "react-redux": "^7.1.1",
-    "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
     "simple-ajax": "^2.6.0"
   }
