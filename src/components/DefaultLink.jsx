@@ -20,6 +20,7 @@ const DefaultLink = ({
   toggleSubMenu,
   activateMe,
   children,
+  router
 }) => (
   <a
     className={classnames(

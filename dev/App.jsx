@@ -177,6 +177,7 @@ class App extends React.Component {
             console.log('onSelected', e);*/
           }}
           content={this.state.menu}
+          router={{test: 'something'}}
         />
 
         <div className="body">

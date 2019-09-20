@@ -69,6 +69,7 @@ const Item = ({
       visible={subMenuVisibility}
       reduxStoreName={reduxStoreName}
       reduxUid={reduxUid}
+      router={router}
     />}
   </li>
 );
@@ -102,6 +103,7 @@ Item.propTypes = {
   activateMe: PropTypes.func.isRequired,
   reduxStoreName: PropTypes.string.isRequired,
   reduxUid: PropTypes.number.isRequired,
+  router: PropTypes.object
 };
 
 Item.contextTypes = {
