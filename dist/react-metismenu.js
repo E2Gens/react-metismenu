@@ -3004,6 +3004,7 @@ var MetisMenu = function (_React$Component) {
     _this.reduxUid = lastReduxUid;
     _this.useExternalReduxStore = props.useExternalReduxStore;
     _this.reduxStoreName = props.reduxStoreName;
+    _this.router = props.router;
     if (_this.useExternalReduxStore) {
       _this.store = _this.useExternalReduxStore;
     } else {
@@ -3123,7 +3124,8 @@ var MetisMenu = function (_React$Component) {
         { className: this.classStore.classMainWrapper },
         _react2.default.createElement(_Container2.default, {
           reduxStoreName: this.reduxStoreName,
-          reduxUid: this.reduxUid
+          reduxUid: this.reduxUid,
+          router: this.router
         })
       );
 
@@ -3168,7 +3170,8 @@ MetisMenu.defaultProps = {
   activeLinkFromLocation: false,
   onSelected: null,
   useExternalReduxStore: null,
-  reduxStoreName: 'metisMenuStore'
+  reduxStoreName: 'metisMenuStore',
+  router: null
 };
 
 MetisMenu.propTypes = {
@@ -3201,7 +3204,8 @@ MetisMenu.propTypes = {
 
   onSelected: _propTypes2.default.func,
   useExternalReduxStore: _propTypes2.default.object,
-  reduxStoreName: _propTypes2.default.string
+  reduxStoreName: _propTypes2.default.string,
+  router: _propTypes2.default.object
 };
 
 MetisMenu.childContextTypes = {
@@ -12549,7 +12553,8 @@ var Container = function Container(_ref, _ref2) {
       visible = _ref.visible,
       itemId = _ref.itemId,
       reduxStoreName = _ref.reduxStoreName,
-      reduxUid = _ref.reduxUid;
+      reduxUid = _ref.reduxUid,
+      router = _ref.router;
   var classStore = _ref2.classStore;
   return _react2.default.createElement(
     'ul',
@@ -12557,7 +12562,7 @@ var Container = function Container(_ref, _ref2) {
       className: (0, _classnames2.default)(typeof classStore.classContainer === 'function' ? classStore.classContainer({ itemId: itemId, visible: visible, items: items }) : classStore.classContainer, visible && classStore.classContainerVisible)
     },
     items.map(function (item, i) {
-      return _react2.default.createElement(_Item2.default, _extends({ key: item.id || '_' + i, reduxStoreName: reduxStoreName, reduxUid: reduxUid }, item));
+      return _react2.default.createElement(_Item2.default, _extends({ key: item.id || '_' + i, reduxStoreName: reduxStoreName, reduxUid: reduxUid, router: router }, item));
     })
   );
 };
@@ -12572,7 +12577,8 @@ Container.propTypes = {
   items: _propTypes2.default.arrayOf(_propTypes2.default.object).isRequired,
   visible: _propTypes2.default.bool,
   reduxStoreName: _propTypes2.default.string.isRequired,
-  reduxUid: _propTypes2.default.number.isRequired
+  reduxUid: _propTypes2.default.number.isRequired,
+  router: _propTypes2.default.object
 };
 
 Container.contextTypes = {
@@ -12677,7 +12683,8 @@ var Item = function Item(_ref, _ref2) {
       toggleSubMenu = _ref.toggleSubMenu,
       activateMe = _ref.activateMe,
       reduxStoreName = _ref.reduxStoreName,
-      reduxUid = _ref.reduxUid;
+      reduxUid = _ref.reduxUid,
+      router = _ref.router;
   var classStore = _ref2.classStore,
       LinkComponent = _ref2.LinkComponent;
   return _react2.default.createElement(
@@ -12699,7 +12706,8 @@ var Item = function Item(_ref, _ref2) {
         externalLink: externalLink,
         hasSubMenu: hasSubMenu,
         toggleSubMenu: toggleSubMenu,
-        activateMe: activateMe
+        activateMe: activateMe,
+        router: router
       },
       _react2.default.createElement('i', { className: (0, _classnames2.default)(classStore.classIcon, classStore.iconNamePrefix + icon) }),
       label,
