@@ -34,6 +34,7 @@ class MetisMenu extends React.Component {
     this.reduxUid = lastReduxUid;
     this.useExternalReduxStore = props.useExternalReduxStore;
     this.reduxStoreName = props.reduxStoreName;
+    this.router = props.router;
     if (this.useExternalReduxStore) {
       this.store = this.useExternalReduxStore;
     } else {
@@ -175,6 +176,7 @@ class MetisMenu extends React.Component {
         <Container
           reduxStoreName={this.reduxStoreName}
           reduxUid={this.reduxUid}
+          router={this.router}
         />
       </div>
     );
@@ -218,6 +220,7 @@ MetisMenu.defaultProps = {
   onSelected: null,
   useExternalReduxStore: null,
   reduxStoreName: 'metisMenuStore',
+  router: null
 };
 
 MetisMenu.propTypes = {
@@ -263,6 +266,7 @@ MetisMenu.propTypes = {
   onSelected: PropTypes.func,
   useExternalReduxStore: PropTypes.object,
   reduxStoreName: PropTypes.string,
+  router: PropTypes.object
 };
 
 MetisMenu.childContextTypes = {

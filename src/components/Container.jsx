@@ -15,6 +15,7 @@ const Container = ({
   itemId,
   reduxStoreName,
   reduxUid,
+  router
 }, {
   classStore,
 }) => (
@@ -27,7 +28,7 @@ const Container = ({
     )}
   >
     {items.map((item, i) => (
-      <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} {...item} />
+      <Item key={item.id || `_${i}`} reduxStoreName={reduxStoreName} reduxUid={reduxUid} router={router} {...item} />
     ))}
   </ul>
 );
@@ -46,6 +47,7 @@ Container.propTypes = {
   visible: PropTypes.bool,
   reduxStoreName: PropTypes.string.isRequired,
   reduxUid: PropTypes.number.isRequired,
+  router: PropTypes.object
 };
 
 Container.contextTypes = {
